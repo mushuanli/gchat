@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小艺</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+</head>
+<body>
+    <div id="session-history">
+        <button id="new-session-button">新会话</button>
+        <!-- Session history will be displayed here -->
+    </div>
+    <div id="main-content">
+        <div id="ai-selector-container">
+            <select id="ai-selector-1" name="ai-selector" class="ai-selector">
+                <!-- 选项将通过 JavaScript 动态添加 -->
+            </select>
+            <div id="ai-sysprompt"></div> <!-- 添加 ai-sysprompt 元素 -->
+            <button id="settings-button">Settings</button>
+        </div>
+        <div id="chat-history">
+            <div id="loading">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <!-- Chat history will be displayed here -->
+        </div>
+        <div id="input-container">
+            <div id="input-resize-handle"></div>
+            <textarea id="message-input" placeholder="Type your message here..."></textarea>
+            <div id="button-container">
+                <button id="send-button">发送</button>
+                <input type="file" id="file-upload" style="display: none;" />
+                <button id="upload-button">上传文件</button>        
+            </div>
+        </div>
+    </div>
+
+    <!-- settings 对话框 -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>设置</h2>
+
+            <div>
+                <!-- 聊天机器人名称下拉选项 -->
+                <label for="chatbot-name">选择聊天机器人:</label>
+                <select id="chatbot-name-2" name="chatbot-name" class="ai-selector">
+                    <option value="DeepSeek">DeepSeek</option>
+                    <option value="Gemini">Gemini</option>
+                    <option value="OpenAI">OpenAI</option>
+                    <option value="Claude">Claude</option>
+                    <option value="XAI">XAI</option>
+                </select>
+                
+                <label for="module-list">模型:</label>
+                <select id="module-list-2" name="module-list" class="module-list">
+                </select>
+            </div>
+
+            <!-- API Key 输入框 -->
+            <label for="api-key">API Key:</label>
+            <input type="text" id="api-key" placeholder="输入您的 API Key">
+
+            <!-- 导出和导入按钮 -->
+            <div class="button-group">
+                <button id="import-button">导入</button>
+                <button id="export-button">导出</button>
+                <button id="save-settings">关闭</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.1.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
